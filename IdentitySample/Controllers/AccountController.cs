@@ -47,18 +47,19 @@ namespace IdentitySample.Controllers
         }
 
         [HttpGet]
-        public IActionResult Login()
+        public IActionResult Login(string returnUrl = null)
         {
             if (_signInManager.IsSignedIn(User))
             {
                 return RedirectToAction("Index", "Home");
 
             }
+            ViewData["returnUrl"] = returnUrl;
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(ViewModels.Account.LoginViewModel model)
+        public async Task<IActionResult> Login(ViewModels.Account.LoginViewModel model, string returnUrl = null)
         {
             if (_signInManager.IsSignedIn(User))
             {
@@ -74,12 +75,16 @@ namespace IdentitySample.Controllers
                        true);
                 if (result.Succeeded)
                 {
+                    if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
+                    {
+                        return Redirect(returnUrl);
+                    }
                     return RedirectToAction("Index", "Home");
 
                 }
                 if (result.IsLockedOut)
                 {
-                    ViewData["ErrorMessage"]="اکانت شما به دلیل پنج بار ورود ناموفق به مدت پنج دقیقه قفل شده است";
+                    ViewData["ErrorMessage"] = "اکانت شما به دلیل پنج بار ورود ناموفق به مدت پنج دقیقه قفل شده است";
                     return View(model);
                 }
                 ModelState.AddModelError("", "رمز عبور یا نام کاربری اشتباه است");
