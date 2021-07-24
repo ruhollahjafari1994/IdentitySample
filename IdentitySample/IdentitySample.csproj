@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="C:\Users\Geek\Desktop\Files\IdentitySample\PersianTranslation\PersianTranslation.csproj" />
+    <ProjectReference Include="..\PersianTranslation\PersianTranslation.csproj" />
   </ItemGroup>
 
 </Project>

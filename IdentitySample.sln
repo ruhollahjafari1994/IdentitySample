@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31410.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentitySample", "IdentitySample\IdentitySample.csproj", "{E5083D55-F260-487E-BC68-D15FE671F59A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersianTranslation", "C:\Users\Geek\Desktop\Files\IdentitySample\PersianTranslation\PersianTranslation.csproj", "{05E93B01-FDE0-4900-93D6-AAE39F0CB5FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersianTranslation", "PersianTranslation\PersianTranslation.csproj", "{E0F3043B-3433-4314-B57D-37DCE03D7F3F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{E5083D55-F260-487E-BC68-D15FE671F59A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5083D55-F260-487E-BC68-D15FE671F59A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5083D55-F260-487E-BC68-D15FE671F59A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{05E93B01-FDE0-4900-93D6-AAE39F0CB5FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{05E93B01-FDE0-4900-93D6-AAE39F0CB5FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{05E93B01-FDE0-4900-93D6-AAE39F0CB5FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{05E93B01-FDE0-4900-93D6-AAE39F0CB5FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0F3043B-3433-4314-B57D-37DCE03D7F3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0F3043B-3433-4314-B57D-37DCE03D7F3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0F3043B-3433-4314-B57D-37DCE03D7F3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0F3043B-3433-4314-B57D-37DCE03D7F3F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
