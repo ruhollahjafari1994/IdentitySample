@@ -33,13 +33,18 @@ namespace IdentitySample
                 options.UseSqlServer(Configuration.GetConnectionString("sqlServer"));
             });
 
-           
-            services.AddIdentity<IdentityUser,IdentityRole>()
+
+            services.AddIdentity<IdentityUser, IdentityRole>(options =>
+            {
+                options.Password.RequiredUniqueChars = 0;
+                options.User.RequireUniqueEmail = true;
+                options.User.AllowedUserNameCharacters =
+                "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-";
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15);
+            })
                 .AddEntityFrameworkStores<Models.Context.AppDbContext>()
-                .AddDefaultTokenProviders();
-          
-
-
+                .AddDefaultTokenProviders()
+                .AddErrorDescriber<PersianTranslation.Identity.PersianIdentityErrorDescriber>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

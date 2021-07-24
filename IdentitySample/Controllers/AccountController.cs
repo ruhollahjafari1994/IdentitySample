@@ -50,11 +50,11 @@ namespace IdentitySample.Controllers
         public IActionResult Login(string returnUrl = null)
         {
             if (_signInManager.IsSignedIn(User))
-            {
+            
                 return RedirectToAction("Index", "Home");
 
-            }
             ViewData["returnUrl"] = returnUrl;
+            
             return View();
         }
 
@@ -64,6 +64,7 @@ namespace IdentitySample.Controllers
             if (_signInManager.IsSignedIn(User))
             {
                 return RedirectToAction("Index", "Home");
+                ViewData["returnUrl"] = returnUrl;
 
             }
             if (ModelState.IsValid)
@@ -79,6 +80,7 @@ namespace IdentitySample.Controllers
                     {
                         return Redirect(returnUrl);
                     }
+
                     return RedirectToAction("Index", "Home");
 
                 }
@@ -94,9 +96,9 @@ namespace IdentitySample.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult LogOut()
+        public async Task<IActionResult> LogOut()
         {
-            _signInManager.SignOutAsync();
+          await  _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
 
