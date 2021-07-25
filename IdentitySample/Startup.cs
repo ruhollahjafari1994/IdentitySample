@@ -37,7 +37,7 @@ namespace IdentitySample
             services.AddIdentity<IdentityUser, IdentityRole>(options =>
             {
                 options.Password.RequiredUniqueChars = 0;
-                options.User.RequireUniqueEmail = true;
+                //options.User.RequireUniqueEmail = true;
                 options.User.AllowedUserNameCharacters =
                 "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-";
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15);
@@ -45,6 +45,15 @@ namespace IdentitySample
                 .AddEntityFrameworkStores<Models.Context.AppDbContext>()
                 .AddDefaultTokenProviders()
                 .AddErrorDescriber<PersianTranslation.Identity.PersianIdentityErrorDescriber>();
+
+            services.AddScoped<Repositories.IMessageSender, Repositories.MessageSender>();
+
+            services.AddAuthentication()
+                .AddGoogle(option =>
+                {
+                    option.ClientId = "";
+                    option.ClientSecret = "";
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

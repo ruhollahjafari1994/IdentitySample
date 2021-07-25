@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Authentication;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -16,5 +17,10 @@ namespace IdentitySample.ViewModels.Account
 
         [Display(Name = "مرا به خاطر بسپار")]
         public bool RememberMe { get; set; }
+
+
+        // => Added For External Login
+        public string ReturnUrl { get; set; }
+        public IList<AuthenticationScheme> ExternalLogins { get; set; } // Get List Of Auth Services From Google ,... Added In startup
     }
 }
